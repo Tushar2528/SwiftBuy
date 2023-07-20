@@ -1,0 +1,30 @@
+.bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    background-color: #a4ccf4;
+    padding: 0 3%;
+    font-size: 1.5rem;
+    color: #29475a;
+    font-weight:400;
+
+}
+.bar div{
+    cursor: pointer;
+}
+
+.rightSide{
+    display: flex;
+    gap: 20%;
+}
+.rightSide div{
+    cursor: pointer;
+}
+
+.nav{
+    text-decoration: none;
+    color: inherit;
+    
+
+}

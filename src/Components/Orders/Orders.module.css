@@ -1,0 +1,64 @@
+.mainContainer{
+    height: 100vh;
+    width: 80vw;
+    /* border: 2px solid black; */
+    position: relative;
+    left: 10%;
+    padding: 5%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    text-align: center;
+}
+
+.order{
+    display:flex;
+    gap: 2%;
+}
+
+.totalprice{
+    height: auto;
+    width: 20%;
+    /* border: 2px solid black; */
+    padding: 1%;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: #DBDFEA;
+    font-size: larger;
+
+
+}
+
+.orderCard{
+    height: auto;
+    width:75%;
+    /* border: 2px solid black; */
+    font-size: large;
+    font-weight: 400;
+    
+}
+
+.orderTable tr td,  thead tr th{
+    border: 1px solid white;
+    padding: 20px 30px;
+}
+
+td{
+    vertical-align:inherit;
+    display: table-cell;
+}
+
+table {
+    background-color:#DBDFEA;
+    border-collapse: separate;
+    text-indent: initial;
+    /* border: 2px solid white; */
+}
+
+.loader{
+    position: absolute;
+    left: 30%;
+    z-index: 10000;
+}

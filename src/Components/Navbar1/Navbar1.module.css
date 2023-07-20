@@ -1,0 +1,67 @@
+.bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    background-color: #a4ccf4;
+    padding: 0 3%;
+    font-size: 1.5rem;
+    color: #29475a;
+    font-weight:400;
+
+}
+.bar div{
+    cursor: pointer;
+}
+
+.rightSide{
+    height: 50%;
+    width: 45%;
+    /* border: 2px solid black; */
+    position: relative;
+    right: 0;
+    display: flex;
+    
+}
+.rightSide div{
+    cursor: pointer;
+    /* height: 60%; */
+    width:25%;
+    /* border: 2px solid black; */
+    display: flex;
+    /* gap: 1%; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    
+}
+
+.rightSide div  .imageDiv{
+    height: 100%;
+    width: 25%;
+    /* border: 2px solid black; */
+}
+
+.imageDiv{
+    height: 100%;
+    width: 100%;
+}
+.rightSide div  .nameDiv{
+    /* padding-top: 1%; */
+    height: 100%;
+    width: 65%;
+    /* border: 2px solid black; */
+    text-align: center;
+    position: relative;
+    
+
+}
+
+.nameDiv{
+    transition: 0.3s all ease-in-out;
+}
+
+.nameDiv:hover{
+    color: white;
+
+}
+
