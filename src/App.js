@@ -1,7 +1,5 @@
 
 import './App.css';
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import {Route, BrowserRouter, Routes } from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,14 +12,12 @@ import { Login } from './Components/Login/Login';
 import { Register } from './Components/Register/Register';
 import { Cart } from './Components/Cart/Cart';
 import { Orders } from './Components/Orders/Orders';
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from "./firebaseinit";
+
+
 
 function App() {
 
-  const auth = getAuth();
-
+ 
 
   return (
 
