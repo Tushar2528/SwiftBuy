@@ -8,7 +8,7 @@ import {Circles } from "react-loader-spinner";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { db } from "../../firebaseinit";
-import { collection, getDocs, doc, deleteDoc, updateDoc, onSnapshot, addDoc , deleteDocs} from "firebase/firestore";
+import { collection, getDocs, doc, deleteDoc, updateDoc, onSnapshot, addDoc } from "firebase/firestore";
 
 function Cart(props){
 
@@ -19,6 +19,7 @@ function Cart(props){
 
     const [isLoading, setIsLoading] = useState(true);
     const [cartItems, setCartItems] = useState([]);
+    console.log(cartItems);
 
     // useEffect to load the cart items from Firestore as sson as the cart component is rendered and on every update
   
@@ -41,9 +42,9 @@ function Cart(props){
     useEffect(() => {
         // Calculate total price whenever cart items change
         calculateTotalPrice();
-    }, [cart]);
+    });
 
-    console.log("Cart component : ", cart );
+    
 
     const calculateTotalPrice = () => {
         let totalPrice = 0;
@@ -97,7 +98,7 @@ function Cart(props){
       
           setCartItems(updatedCartItems);
         } catch (error) {
-          console.error("Error adding item to cart:", error);
+          
         }
       };
 
@@ -148,7 +149,7 @@ function Cart(props){
             }
           }
         } catch (error) {
-          console.error("Error decrementing item in cart:", error);
+          
         }
       };
       
@@ -172,8 +173,7 @@ function Cart(props){
             const cartCollectionRef = collection(db, `users/${userid}/cart`);
             const snapshot = await getDocs(cartCollectionRef);
 
-            console.log("Snapshot : ",snapshot);
-        
+           
             const deletePromises = snapshot.docs.map((doc) => deleteDoc(doc.ref));
             console.log("Sanpshot docs : ", snapshot.docs);
             await Promise.all(deletePromises);
@@ -181,7 +181,7 @@ function Cart(props){
 
             navigate(`/${userid}/orders`);
         } catch (error) {
-          console.error("Error creating order:", error);
+          
         }
       };
 
@@ -194,18 +194,18 @@ function Cart(props){
             console.log(item);
             const itemsRef = collection(db, `users/${userid}/cart/`);
             const snapshot = await getDocs(itemsRef);
-            console.log("Snapshot remove :", snapshot);
+            
 
-            snapshot.docs.map((doc)=> {
-                if(doc.data().id === item.id){
-                    deleteDoc(doc.ref);
-                }
+            snapshot.docs.forEach((doc) => {
+              if (doc.data().id === item.id) {
+                deleteDoc(doc.ref);
+              }
             })
             
         // Update the cart state by filtering out the removed item
           setCart((prevCart) => prevCart.filter((cartItem) => cartItem.id !== item.id));
         } catch (error) {
-          console.error("Error removing item from cart:", error);
+          
         }
       }
         
@@ -241,7 +241,7 @@ function Cart(props){
                         return (
                             <div className={cartStyles.cartItem}>
                                 <div className={cartStyles.itemImage}>
-                                    <img src={item.image}></img>
+                                    <img src={item.image} alt=""></img>
                                 </div>
                                 <div className={cartStyles.itemDetails}>
                                     <div>
@@ -250,9 +250,9 @@ function Cart(props){
                                     <div className={cartStyles.price}>
                                         <div><h3>$ {item.price}</h3></div>
                                         <div className={cartStyles.buttons}>
-                                            <img src={plus} onClick={() =>increment(item)}></img>
+                                            <img src={plus} alt="" onClick={() =>increment(item)}></img>
                                             <p>{item.qty}</p>
-                                            <img  src={minus} onClick={()=> decrement(item)}></img>
+                                            <img  src={minus} alt="" onClick={()=> decrement(item)}></img>
                                         </div>
                                         
                                     </div>

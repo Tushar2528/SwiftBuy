@@ -1,10 +1,9 @@
 import { useState } from "react";
 import loginStyles from "./Login.module.css";
-import { getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { db } from "../../firebaseinit";
-import { collection, addDoc, getDocs, onSnapshot, doc, deleteDoc, getDoc } from 'firebase/firestore';
+
 import cross from "../../Images/cross.png"
 
 function Login() {
@@ -23,11 +22,12 @@ function Login() {
         .then((userCredential) => {
             const user = userCredential.user;
             navigate(`/${email}`);
+            console.log(user);
         })
         .catch((error) => {
             // Error signing in user
             setError(error.message);
-            console.error("Sign-in error:", error.code, error.message);
+           
         });
     }
 
@@ -41,7 +41,7 @@ function Login() {
                 <NavLink className={loginStyles.nav} to="/sign-up"><h3>Sign-Up instead ?</h3></NavLink>
 
                 {/* Conditional rendering for error message */}
-                {error && <div className={loginStyles.error}><div className={loginStyles.errContainer}><img src={cross}></img>Invalid Username/Password</div></div>}
+                {error && <div className={loginStyles.error}><div className={loginStyles.errContainer}><img src={cross} alt=""></img>Invalid Username/Password</div></div>}
             </form>
         </>
     )

@@ -15,9 +15,10 @@ function Home(props) {
   const [filteredData, setFilteredData] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [priceRange, setPriceRange] = useState({ min: 1, max: 150 });
-  const [currentPriceRange, setCurrentPriceRange] = useState(priceRange);
+  
   const [cartItems, setCartItems] = useState([]);
-  const [itemsDB, setItemsDB] = useState([]);
+  console.log(cartItems);
+  
 
   const {userid} = useParams();
   // console.log(userid);
@@ -107,7 +108,7 @@ function Home(props) {
   
       setCartItems(updatedCartItems);
     } catch (error) {
-      console.error("Error adding item to cart:", error);
+      
     }
   };
   
