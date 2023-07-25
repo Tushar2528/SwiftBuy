@@ -10,7 +10,7 @@ function Orders(){
 
     const {userid} = useParams();
     const [orders, setOrders] = useState([]);
-    const [price, setPrice] = useState(0);
+    
     const [isLoading, setIsLoading] = useState(true);
 
 
