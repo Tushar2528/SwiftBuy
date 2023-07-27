@@ -1,6 +1,6 @@
-
 SwiftBuy - A Dummy E-Commerce Project
-SwiftBuy
+
+Hosted Link - https://master--visionary-tanuki-2f04c0.netlify.app/
 
 SwiftBuy is a dummy e-commerce site built using React, where users can explore products, manage their shopping cart, and even make "dummy" purchases with a seamless order history experience.
 
